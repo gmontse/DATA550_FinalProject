@@ -1,0 +1,110 @@
+---
+title: 'Final Project 2: R Markdown'
+author: "Guadalupe Rivera"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: cerulean
+    highlight: null
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+```{r load-data, echo = FALSE}
+here::i_am("FinalProject2.Rmd")
+data <- read.csv(
+  file = here::here("data/PCOS_clean_data.csv")
+)
+```
+
+## Introduction 
+ 
+This dataset's original objective is to identify metabolic pathways that can be used to inform the development of effective interventions to reduce symptom severity and improve health-related quality of life in women with PCOS. This analysis will look specifically at the association between PCOS symptoms (Acne, Hirutisum, and Alopecia) and microbiome diversity, taking age, sex, race/ethnicity, education, employment & marital status as confounders. For this document, I will share the descriptive statistics of the outcome (PCOS Symptoms) and the confounders, as well as share the frequency of microbiome abundance and microbiome diversity of those who do not have PCOS Acne Symptoms and those who do have PCOS Acne Symptoms. 
+
+The microbiome can be defined by two variables: Microbiome Diversity and Microbiome Abundance. Microbiome diversity refers to the number of different bacteria that is in the gut, and microbiome abundance refers to how abundant bacteria is in the gut. It is important to note that having abundant bacteria is not a sign of a healthy gut. The gut contains various forms of bacteria, some good and some bad. When individuals have poor gut health, it is likely that there are a larger amount of bad bacteria instead of good.  
+
+## Table 1
+
+```{r table, echo = FALSE}
+
+library(dplyr)
+
+readRDS(
+  file = here::here("output/table1.rds")
+) 
+
+```
+
+Table 1 demonstrates the descriptive statistic of each variable. For the PCOS symptom, acne, 26 out of the 56 individuals experience it. 29 out of the 56 individuals in the study experience Hirsutism, and 29 individuals also experience alopecia. The mean age for women of reproductive age involved is 30.45 years of age. 
+
+There various different races and ethnicities in this sample, with 23.21% identifying as Asian, 17.86% identifying 20. 26.79 were white, but only 12.60% are black. For a PCOS study, Hispanic and Non-Hispanic Black individuals are underrepresented, given that they have the highest rates of PCOS at the population level. 
+
+Education levels vary with different categories, including associate degrees, bachelor's degrees, high school diploma, less than a high school diploma, master's degrees, and Ph.D's. The 25% of the women in this sample have a master's degree, 17.86% have a bachelor's degree, 19.64% have a high school diploma, and 8.93% have a Ph.D. Employment includes women who are employed, self-employed or unemployed. Marital Status includes categories for married or single women, with 55.36% being married, and 44.64% being single.
+
+## Histogram: Acne Symptoms and Microbiome Abundance
+
+Below, there are two histograms that depicts the frequency of indviduals and their microbiome abundance. One figure is for individuals with PCOS acne, and one is for individuals without PCOS acne.
+
+### Figure 1
+
+```{r no-acne, echo = FALSE}
+
+#| fig.align = "center",
+#| out.width = "250px"
+knitr::include_graphics(
+  here::here("output/no_acne_hist.png")
+)
+
+```
+
+Figure 1 demonstrates that there is not a normal distribution of microbiome abundance for individuals with no acne. There are specific peaks, particularly around 0.25, 0.50, 0.75, and 1.00
+
+### Figure 2
+
+```{r acne, echo = FALSE}
+
+#| fig.align = "center",
+#| out.width = "250px"
+knitr::include_graphics(
+  here::here("output/acne_hist.png")
+)
+```
+
+For individauls with PCOS acne symptoms, there is also not a normal distribution of the frequency of microbiome abundance. They seem to be spread out evenly, with more individuals with a lower microbiome abundance than those individuals without PCOS. 
+
+## Histogram: PCOS Acne Symptoms and Microbiome Diversity
+
+Below, there are two histograms that depicts the frequency of indviduals and their microbiome diversity. One figure is for individuals with PCOS acne, and one is for individuals without PCOS acne.
+
+### Figure 3
+
+```{r no-acne-diversity, echo = FALSE}
+
+#| fig.align = "center",
+#| out.width = "250px"
+knitr::include_graphics(
+  here::here("output/no_acne_diversity_hist.png")
+)
+
+```
+
+For individuals without PCOS acne, there is a larger frequency of individuals with a lower microbiome diversity than those with a high microbiome diversity.
+
+### Figure 4
+
+```{r acne-diversity, echo= FALSE}
+
+#| fig.align = "center",
+#| out.width = "250px"
+knitr::include_graphics(
+  here::here("output/acne_diversity_hist.png")
+)
+
+```
+
+For individuals with PCOS acne, there is a large frequency of individuals between 4.0 and 5.0 of microbiome diversity. Additionally, there is another large frequency at 6.0. 
+
+Overall, these histograms depict the frequencies of microbiome diversity and microbiome abundance by PCOS acne symptoms. Next steps to be able to make inferences would require inferential statistics.
+
