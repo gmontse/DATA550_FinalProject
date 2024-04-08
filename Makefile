@@ -8,7 +8,8 @@ output/table1.rds: code/table_1.R data/PCOS_clean_data.csv
 # create the output of all four histograms
 output/no_acne_hist.png: code/acne_hist.R data/PCOS_clean_data.csv
 	Rscript code/acne_hist.R
-	
+
+#make a command that will create both outputs at the same time	
 .PHONY: outputs
 outputs: output/table1.rds output/no_acne_hist.png
 
@@ -18,4 +19,8 @@ outputs: output/table1.rds output/no_acne_hist.png
 .PHONY: clean
 clean:
 #write a command that will clean the contents
-	rm output/*.rds && rm output/*.png
+	rm output/*.rds && rm output/*.png && rm FinalProject2.html
+
+.PHONY: install
+install:
+	Rscript -e 'install.packages("renv"); renv::restore()'

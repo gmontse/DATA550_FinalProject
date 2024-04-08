@@ -1,6 +1,6 @@
 Final Project 4: Organization and GitHub Repository
 
-This repository contains the code, mock data, output, and a Makefile for my project that shares the descriptive statistics of the outcome (PCOS Symptoms) and the confounders (Age, Race/Ethnicity, Education, Employment, and Marital Status), as well as share the frequency of microbiome abundance and microbiome diversity of those who do not have PCOS Acne Symptoms and those who do have PCOS Acne Symptoms. 
+This repository contains the code, mock data, output, and a Makefile, a renv folder, and a renv.lock for my project that shares the descriptive statistics of the outcome (PCOS Symptoms) and the confounders (Age, Race/Ethnicity, Education, Employment, and Marital Status), as well as share the frequency of microbiome abundance and microbiome diversity of those who do not have PCOS Acne Symptoms and those who do have PCOS Acne Symptoms. 
 
 -   Code Folder
 
@@ -22,6 +22,9 @@ This repository contains the code, mock data, output, and a Makefile for my proj
         - `table1.rds`: rds file that contains the table that shows the characteristics of the data sample. 
 
 
--   `Makefile` contains instructions to create every component for the report.
+-   `Makefile` contains instructions to create every component for the report. 
+    - Inside the Makefile, there is a rule for restoring the package environment. To synchronize the package repository, you can use `make install`
+    
+-   The `renv.lock` file and `renv` folder in the project directory captures information on the packages used to create the report. 
 
--   `FinalProject2.Rmd` contains R markdown code to compile all components together to create a html document
+-   `FinalProject2.Rmd` contains R markdown code to compile all components together to create a html document.
