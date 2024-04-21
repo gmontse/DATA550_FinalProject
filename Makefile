@@ -24,3 +24,16 @@ clean:
 .PHONY: install
 install:
 	Rscript -e 'install.packages("renv"); renv::restore()'
+
+#DOCKER RULES
+
+PROJECTFILES = FinalProject2.Rmd code/render_report.R code/acne_hist.R code/clean_data.R code/table_1.R Makefile
+RENVFILES = renv.lock renv/activate.R renv/settings.json
+
+docker_image: $(PROJECTFILES) $(RENVFILES) Dockerfile
+	docker build -t gmontse/final_project . 
+	
+#rule to run container
+report/Final_Project2.html:
+	docker run -v "$$(pwd)/report:/Final_Project2/report" gmontse/final_project || "/$$(pwd)/report":Final_Project2/report gmonste/final_project
+	
