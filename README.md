@@ -36,8 +36,8 @@ Building the Docker image locally:
 
 -   To build the image locally, use the `make docker_image` command from the Makefile in the terminal. 
 -   To run the report with the local docker image, using the `make report/Final_Report2.html` command from the makefile. This should work for both Windows or Mac user, but if it does not try the following: 
-    - Windows Users:`docker run -v "/$$(pwd)/report":Final_Project2/report gmonste/final_project`
-    - Mac Users: `docker run -v "$$(pwd)/report:/Final_Project2/report" gmontse/final_project`
+    - Windows Users:`docker run -v "/$$(pwd)/report":final_project/report gmonste/final_project`
+    - Mac Users: `docker run -v "$$(pwd)/report:/final_project/report" gmontse/final_project`
 
 Docker Hub:
 
