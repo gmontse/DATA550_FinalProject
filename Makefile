@@ -35,5 +35,5 @@ docker_image: $(PROJECTFILES) $(RENVFILES) Dockerfile
 	
 #rule to run container
 report/Final_Project2.html:
-	docker run -v "$$(pwd)/report:/Final_Project2/report" gmontse/final_project || "/$$(pwd)/report":Final_Project2/report gmonste/final_project
+	docker run -v "$$(pwd)/report:/final_project/report" gmontse/final_project || "/$$(pwd)/report":final_project/report gmonste/final_project
 	
