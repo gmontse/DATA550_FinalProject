@@ -19,7 +19,7 @@ outputs: output/table1.rds output/no_acne_hist.png
 .PHONY: clean
 clean:
 #write a command that will clean the contents
-	rm output/*.rds && rm output/*.png && rm FinalProject2.html
+	rm -f output/*.rds && rm -f output/*.png && rm -f FinalProject2.html && rm -f report/FinalProject2.html
 
 .PHONY: install
 install:
